@@ -34,7 +34,7 @@ document.querySelectorAll('.card-servico, .card-plano').forEach(card => {
         const y = e.clientY - rect.top;
         card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 238, 255, 0.1), transparent 70%)`;
     });
-    card.addEventListener('mouseÑleave', () => {
+    card.addEventListener('mouseleave', () => {
         card.style.background = "";
     });
 });
