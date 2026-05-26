@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --azul-neon: #00eeff;
+    --azul-escuro: #0066ff;
+    --branco: #ffffff;
+    --cinza-claro: #e0e0e0;
+    --preto: #000000;
+    --preto-claro: #0a0a0a;
+}
+
+body {
+    background-color: var(--preto);
+    color: var(--branco);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Fundo animado */
+.fundo-animado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #000000 0%, #05051a 50%, #000000 100%);
+    z-index: -2;
+}
+
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, var(--azul-neon), transparent),
+        radial-gradient(1px 1px at 60px 70px, var(--branco), transparent),
+        radial-gradient(1.5px 1.5px at 50px 50px, var(--azul-neon), transparent),
+        radial-gradient(1px 1px at 130px 80px, var(--branco), transparent),
+        radial-gradient(2px 2px at 90px 10px, var(--azul-neon), transparent);
+    background-size: 200px 200px;
+    animation: flutuar 20s linear infinite;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200px); }
+}
+
+/* Cores principais com brilho */
+.azul-neon {
+    color: var(--azul-neon);
+    text-shadow: 0 0 5px var(--azul-neon), 0 0 15px var(--azul-neon), 0 0 30px var(--azul-escuro);
+}
+
+.branco-fluido {
+    color: var(--branco);
+    text-shadow: 0 0 8px var(--branco), 0 0 20px rgba(255,255,255,0.5);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Barra de navegação */
+.barra-navegacao {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 238, 255, 0.2);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.links-nav a {
+    color: var(--cinza-claro);
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: all 0.3s;
+}
+
+.links-nav a:hover {
+    color: var(--azul-neon);
+    text-shadow: 0 0 8px var(--azul-neon);
+}
+
+/* Cabeçalho */
+.cabecalho-principal {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.titulo-gigante {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+}
+
+.texto-destaque {
+    font-size: 1.3rem;
+    color: var(--cinza-claro);
+    margin-bottom: 3rem;
+    min-height: 30px;
+}
+
+/* Botões */
+.botao-neon {
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: var(--azul-neon);
+    border: 2px solid var(--azul-neon);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s;
+    box-shadow: inset 0 0 10px rgba(0, 238, 255, 0.3), 0 0 15px rgba(0, 238, 255, 0.4);
+}
+
+.botao-neon:hover {
+    background: var(--azul-neon);
+    color: var(--preto);
+    box-shadow: 0 0 20px var(--azul-neon), 0 0 40px var(--azul-neon);
+    transform: translateY(-3px);
+}
+
+.botao-premium {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(45deg, #0066ff, #00eeff);
+    color: var(--preto);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.4s;
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.6);
+}
+
+.botao-premium:hover {
+    box-shadow: 0 0 25px var(--azul-neon), 0 0 50px rgba(0, 102, 255, 0.8);
+    transform: translateY(-3px);
+}
+
+.botao-simples {
+    padding: 0.7rem 2rem;
+    background: transparent;
+    color: var(--branco);
+    border: 1px solid var(--branco);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.botao-simples:hover {
+    border-color: var(--azul-neon);
+    color: var(--azul-neon);
+}
+
+/* Seções */
+.secao {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.escuro {
+    background-color: rgba(5, 5, 26, 0.3);
+}
+
+.titulo-secao {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.caixa-conteudo {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.15rem;
+    color: var(--cinza-claro);
+    padding: 2rem;
+    border: 1px solid rgba(0, 238, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.1);
+}
+
+/* Grade Serviços */
+.grade-servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card-servico {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.4s;
+    backdrop-filter: blur(5px);
+}
+
+.card-servico .icone {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card-servico h3 {
+    color: var(--azul-neon);
+    margin-bottom: 1rem;
+}
+
+.card-servico:hover {
+    border-color: var(--azul-neon);
+    box-shadow: 0 0 25px rgba(0, 238, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Preços */
+.grade-precos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-plano {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 280px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s;
+    backdrop-filter: blur(5px);
+}
+
+.card-plano.destaque {
+    border-color: var(--azul-neon);
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(0, 238, 255, 0.2);
+}
+
+.card-plano.premium {
+    border-color: var(--azul-neon);
+    background: linear-gradient(180deg, rgba(0, 238, 255, 0.05), rgba(0, 102, 255, 0.05));
+    box-shadow: 0 0 30px rgba(0, 102, 255, 0.3);
+}
+
+.etiqueta {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--azul-neon);
+    color: var(--preto);
+    padding: 0.2rem 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--azul-neon);
+}
+
+.preco-grande {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin: 1rem 0;
+}
+
+.preco-grande span {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.lista-itens {
+    list-style: none;
+    margin: 2rem 0;
+    color: var(--cinza-claro);
+}
+
+.lista-itens li {
+    margin: 0.5rem 0;
+}
+
+/* Contato */
+.caixa-contato {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 3rem;
+    border: 1px solid rgba(0, 238, 255, 0.3);
+    border-radius: 12px;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 0 40px rgba(0, 238, 255, 0.1);
+}
+
+.dados-contato {
+    margin: 2rem 0;
+    font-size: 1.1rem;
+}
+
+.item-contato {
+    margin: 0.8rem 0;
+}
+
+.botao-whatsapp {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+}
+
+.botao-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px #25d366;
+}
+
+.rodape {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .barra-navegacao {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .links-nav a {
+        margin: 0 0.5rem;
+    }
+    .titulo-gigante {
+        font-size: 2rem;
+    }
+    .card-plano.destaque, .card-plano.premium {
+        transform: scale(1);
+    }
+}
